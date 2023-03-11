@@ -1,4 +1,4 @@
-<!-- modal tambah data warga -->
+<!-- modal tambah data Keluarga -->
 <div class="modal fade" id="ModalTambah" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -79,9 +79,9 @@
             </form><!-- End General Form Elements -->
         </div>
     </div>
-</div><!-- End Modal tambah warga-->
+</div><!-- End Modal tambah Keluarga-->
 
-<!-- modal Edit data warga -->
+<!-- modal Edit data Keluarga -->
 <div class="modal fade" id="ModalEdit" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -251,4 +251,4 @@
             </div>
         </div>
     </div>
-</div><!-- End Modal Edit warga-->
+</div><!-- End Modal Edit Keluarga-->
