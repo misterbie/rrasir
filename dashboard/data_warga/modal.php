@@ -477,37 +477,36 @@
                                                     <table class="table table-bordered" style="width:100%">
                                                         <thead>
                                                             <tr>
-                                                                <th>No.</th>
+                                                                <th>No</th>
                                                                 <th>Nama</th>
                                                                 <th>Kelamin</th>
                                                                 <th>TTL</th>
-                                                                <th>Pendidikan</th>
                                                                 <th>Agama</th>
                                                                 <th>Hubungan</th>
                                                                 <th>No Telp</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            <?php $i = 1 ?>
+                                                            <?php
+                                                            $id = $_POST['tabel_id'];
+                                                            $result = mysqli_query($koneksi, "SELECT * FROM data_warga
+								                            JOIN data_keluarga WHERE kk_id");
+                                                            $data = mysqli_fetch_array($result)
+                                                            ?>
                                                             <tr>
-                                                                <td>1</td>
-                                                                <td>Minda Afriani</td>
-                                                                <td>Perempuan</td>
-                                                                <td>Payakumbuh 01/01/1995</td>
-                                                                <td>SLTA</td>
-                                                                <td>Islam</td>
-                                                                <td>Istri</td>
-                                                                <td>08789456123</td>
+                                                                <td><?= $i++; ?></td>
+                                                                <td><?= $id; ?></td>
+                                                                <td><?= $data['kelamin']; ?></td>
+                                                                <td><?= $data['tempat_lahir']; ?>, <?= $data['tgl_lahir']; ?></td>
+                                                                <td><?= $data['agama']; ?></td>
+                                                                <td><?= $data['sdk']; ?></td>
+                                                                <td><?= $data['telp']; ?></td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Ameera Ghania</td>
-                                                                <td>Perempuan</td>
-                                                                <td>Payakumbuh 03/01/2023</td>
-                                                                <td>-</td>
-                                                                <td>Islam</td>
-                                                                <td>Anak</td>
-                                                                <td>-</td>
-                                                            </tr>
+
+                                                            <?php
+
+                                                            ?>
                                                         </tbody>
                                                     </table>
                                                 </div>

@@ -87,7 +87,7 @@ if (isset($_POST['module'])) {
 							echo "<script>
 								Swal.fire(
 								'Berhasil',
-								'Data Berhasil Ditambah Data Berhasil Ditambah!<br> \\nDengan Login <br> \\nUSERNAME: " . $user_nama . " <br>\\nPASSWORD: 123456',
+								'Data Berhasil Ditambah!<br> \\nDengan Login <br> \\nUSERNAME: " . $user_nama . " <br>\\nPASSWORD: 123456',
 								'success'
 							).then(function() {
 								window.location = '../../dashboard/data_warga/';

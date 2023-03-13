@@ -20,7 +20,7 @@
                                 $selek_data = mysqli_query($koneksi, "SELECT * FROM data_warga");
                                 while ($data = mysqli_fetch_array($selek_data)) {
                                 ?>
-                                    <option value="<?php echo $data['tabel_id']; ?>"><?php echo $data['kk']; ?></option>
+                                    <option value="<?= $data['tabel_id']; ?>"><?= $data['kk']; ?> == <?= $data['nama']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -28,19 +28,19 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama </label>
+                        <label for="namakk" class="col-sm-2 col-form-label">Nama </label>
                         <div class="col-sm-10">
-                            <input name="nama" type="text" class="form-control" placeholder="Masukan Nama">
+                            <input name="namakk" type="text" class="form-control" placeholder="Masukan Nama">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir </label>
                         <div class="col-sm-10">
-                            <input name="tempat_lahir" type="text" class="form-control" placeholder="Masukan Nama">
+                            <input name="tempat_lahir" type="text" class="form-control" placeholder="Masukan Tempat Lahir">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="tgl_lahir" class="col-sm-2 col-form-label ">Date</label>
+                        <label for="tgl_lahir" class="col-sm-2 col-form-label ">Tanggal Lahir</label>
                         <div class="col-sm-4">
                             <input type="date" name="tgl_lahir" placeholder="Masukan Tanggal Lahir" class="form-control">
                         </div>
@@ -72,7 +72,7 @@
                     <?php print CSRF::tokenInput(); ?>
             </div>
             <div class="modal-footer">
-                <input id="module" type="hidden" name="module" value="data_warga">
+                <input id="module" type="hidden" name="module" value="data_keluarga">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                 <button type="submit" class="btn btn-success">Simpan</button>
             </div>

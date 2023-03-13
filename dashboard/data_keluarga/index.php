@@ -22,12 +22,11 @@
 
             <h5 class="card-title">Tabel Data Keluarga</h5>
             <button type="button" class="btn btn-success rounded-pill btn-md mb-2" data-bs-toggle="modal" data-bs-target="#ModalTambah"><i class="bi bi-person-plus"></i> Tambah Data</button>
-            <input id="btn-data-warga" type="hidden" value="Tabel Data Warga">
+            <input id="btn-data-keluarga" type="hidden" value="Tabel Data Keluarga">
             <!-- Table -->
             <table id="tabel" class="table " style="width:100%">
               <thead>
                 <tr>
-                  <th>No.</th>
                   <th>No-KK</th>
                   <th>Kepala Keluarga</th>
                   <th>Nama</th>
@@ -35,7 +34,6 @@
                   <th>TTL</th>
                   <th>Kelamin</th>
                   <th>No Telp</th>
-
                   <th class="text-center">Aksi</th>
                 </tr>
               </thead>
@@ -47,7 +45,6 @@
                 while ($data = mysqli_fetch_array($result)) {
                 ?>
                   <tr>
-                    <td><?= $i++; ?></td>
                     <td><?= $data['kk']; ?></td>
                     <td><?= $data['nama']; ?></td>
                     <td><?= $data['namakk']; ?></td>
@@ -62,7 +59,7 @@
                       <!-- Delete -->
                       <form id="form-delete<?php echo $data['tabel_id']; ?>" method="post" action="../../system/_core/delete.php" class="d-inline">
                         <input type="hidden" name="delete_id" value="<?php echo $data['tabel_id']; ?>">
-                        <input id="module" type="hidden" name="module" value="data_warga">
+                        <input id="module" type="hidden" name="module" value="data_keluarga">
                         <?php print CSRF::tokenInput(); ?>
                         <button class="btn btn-danger rounded-pill btn-sm" onclick="get_nama_delete('form-delete<?php echo $data['tabel_id']; ?>')"><i class="bi bi-trash-fill"></i> Hapus</button>
 
