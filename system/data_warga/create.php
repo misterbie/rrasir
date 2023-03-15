@@ -52,7 +52,7 @@ if (isset($_POST['module'])) {
 				$status_rumah = $_POST['status_rumah'];
 				$alamat = $_POST['alamat'];
 
-				if (!empty($kk) && !empty($ktp) && !empty($nama) && !empty($blok) && !empty($nomer) && !empty($tempat_lahir) && !empty($tgl_lahir) && !empty($kelamin)  && !empty($menikah) && !empty($pendidikan) && !empty($keluarga) && !empty($agama) && !empty($pekerjaan) && !empty($telp) && !empty($status_rumah) &&  !empty($alamat)) {
+				if (!empty($kk) && !empty($ktp) && !empty($nama) && !empty($blok) && !empty($nomer) && !empty($tempat_lahir) && !empty($tgl_lahir) && !empty($kelamin)  && !empty($menikah) && !empty($pendidikan) && !empty($agama) && !empty($pekerjaan) && !empty($telp) && !empty($status_rumah) &&  !empty($alamat)) {
 
 					$kk = mysqli_real_escape_string($koneksi, $kk);
 					$ktp = mysqli_real_escape_string($koneksi, $ktp);
@@ -122,7 +122,7 @@ if (isset($_POST['module'])) {
 						title: 'Time Out',
 						text: 'Silahkan Login Kembali!'
 					}).then(function() {
-						window.location = '../data_warga/';
+						window.location = '../../dashboard/data_warga/';
 					});</script>");
 			}
 		} else {
@@ -132,7 +132,7 @@ if (isset($_POST['module'])) {
 					title: 'Akses Dilarang',
 					text: 'Data Tidak Ditemukan!'
 				}).then(function() {
-					window.location = '../data_warga/';
+					window.location = '../../dashboard/data_warga/';
 				});</script>");
 		}
 	} else {
@@ -142,7 +142,7 @@ if (isset($_POST['module'])) {
 					title: 'Akses Dilarang',
 					text: 'Modul Tidak Tepat!'
 				}).then(function() {
-					window.location = '../data_warga/';
+					window.location = '../../dashboard/data_warga/';
 				});</script>");
 	}
 } else {
@@ -152,7 +152,7 @@ if (isset($_POST['module'])) {
 			title: 'Akses Dilarang',
 			text: 'Modul Salah!'
 		}).then(function() {
-			window.location = '../data_warga/';
+			window.location = '../../dashboard/data_warga/';
 		});</script>");
 }
 ?>

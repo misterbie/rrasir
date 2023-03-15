@@ -113,11 +113,13 @@
   // });
   $(document).on("click", "#detail_link", function() {
     var id = $(this).data('tabel_id');
+    var keluarga = $(this).data('keluarga')
     $.ajax({
       url: 'keluarga.php',
       type: 'POST',
       data: {
-        id: id
+        id: id,
+        keluarga: keluarga
       },
       success: function(response) {
         // console.log(response)

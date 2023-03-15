@@ -110,7 +110,14 @@
                             </div>
                             <label for="keluarga" class="col-sm-2 col-form-label">Keluarga </label>
                             <div class="col-sm-4">
-                                <input name="keluarga" type="number" class="form-control" placeholder="Jumlah Keluarga">
+                                <select name="keluarga" class="form-select" aria-label="Default select example">
+                                    <option value="">=== Jumlah Keluarga ===</option>
+                                    <option value="">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -487,10 +494,28 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            <?php
+                                                            include "../../system/_core/db.php";
+                                                            $id = $_GET['tabel_id'];
+                                                            var_dump($id);
+                                                            $result = mysqli_query($koneksi, "SELECT * FROM data_keluarga
+                                                            JOIN data_warga ON data_warga.tabel_id = data_keluarga.kk_id
+                                                            WHERE data_warga.tabel_id = 7");
+                                                            while ($data = mysqli_fetch_array($result)) {
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?= $i++; ?></td>
+                                                                    <td><?= $data['namakk']; ?></td>
+                                                                    <td><?= $data['kelamin']; ?></td>
+                                                                    <td><?= $data['tempat_lahir']; ?>, <?= $data['tgl_lahir']; ?></td>
+                                                                    <td><?= $data['agama']; ?></td>
+                                                                    <td><?= $data['sdk']; ?></td>
+                                                                    <td><?= $data['telp']; ?></td>
+                                                                </tr>
+                                                            <?php
+                                                            }
 
-                                                            <tr>
-                                                                <!-- include keluarga.php -->
-                                                            </tr>
+                                                            ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -715,9 +740,6 @@
             <button type="button" class="btn btn-primary">Close</button>
         </div>
     </div>
-</div>
-
-
-<!-- End Modal Detail warga-->
+</div><!-- End Modal Detail warga-->
 
 <script src="modal.js"></script>

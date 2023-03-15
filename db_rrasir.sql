@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Mar 2023 pada 13.00
+-- Waktu pembuatan: 15 Mar 2023 pada 06.55
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_rrasir`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_keluarga`
+--
+
+CREATE TABLE `data_keluarga` (
+  `tabel_id` int(11) NOT NULL,
+  `kk_id` int(11) NOT NULL,
+  `namakk` varchar(50) NOT NULL,
+  `tempat_lahir` varchar(20) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `kelamin` varchar(20) NOT NULL,
+  `telp` varchar(15) NOT NULL,
+  `sdk` varchar(15) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `data_keluarga`
+--
+
+INSERT INTO `data_keluarga` (`tabel_id`, `kk_id`, `namakk`, `tempat_lahir`, `tgl_lahir`, `kelamin`, `telp`, `sdk`, `status`) VALUES
+(13, 7, 'Minda', 'Payakumbuh', '1995-04-27', 'Perempuan', '08123456789', 'Istri', 1),
+(14, 2, 'Widya', 'Padang', '1995-01-01', 'Perempuan', '08132456789', 'Istri', 1),
+(15, 7, 'Ameera Ghania', 'Batam', '2023-01-03', 'Perempuan', '', 'Anak', 1),
+(16, 8, 'Amelia Sembiring', 'Medan', '1995-02-01', 'Perempuan', '081234567899', 'Istri', 1),
+(17, 8, 'Deon', 'Batam', '2022-05-05', 'Laki-laki', '', 'Anak', 1);
 
 -- --------------------------------------------------------
 
@@ -83,9 +112,10 @@ CREATE TABLE `data_warga` (
 
 INSERT INTO `data_warga` (`tabel_id`, `user_id`, `kk`, `ktp`, `nama`, `blok`, `nomer`, `tempat_lahir`, `tgl_lahir`, `kelamin`, `menikah`, `pendidikan`, `keluarga`, `agama`, `pekerjaan`, `telp`, `status_rumah`, `alamat`, `status`) VALUES
 (2, 2, '21354564567823', '21456789987789', 'Slamet Fitriyanto', 'AE', '05', 'Batam', '1990-01-01', 'Laki-laki', 'Menikah', 'S1', '2', 'Islam', 'Direktur', '08987987654', 'Milik Sendiri', 'Tanjung Uncang', 1),
-(3, 3, '25878978855484', '65465498789899', 'Hadi', 'AG', '22', 'Batam', '1991-02-02', 'Laki-laki', 'Menikah', 'D3', '3', 'Islam', 'Direktur', '08258484855', 'Milik Sendiri', 'Jauh', 1),
 (4, 4, '85464825484', '121665321556', 'Adnil', 'AH', '12', 'Batam', '1992-05-05', 'Laki-laki', 'Belum Menikah', 'SLTP', '2', 'Islam', 'Direktur', '12312321', 'Milik Sendiri', 'Ruli Renggali', 1),
-(5, 5, '212321245656545', '32543566757567', 'Sarmanto', 'AD', '15', 'Batam', '1990-08-05', 'Laki-laki', 'Belum Menikah', 'S2', '0', 'Islam', 'Direktur', '214324234', 'Sewa', 'Jauh', 1);
+(7, 7, '321654987789987', '12345679987654', 'Robi Aryanto', 'AG', '21', 'Jambi', '1989-03-28', 'Laki-laki', 'Menikah', 'SLTP', '2', 'Islam', 'Pengacara', '08132456789', 'Milik Sendiri', 'Tiban Kampoeng', 1),
+(8, 8, '21564987798654', '21654987789745', 'Imanuel Purba', 'AE', '05', 'Medan', '1991-01-01', 'Laki-laki', 'Menikah', 'D3', '2', 'Kristen', 'Bakamla', '08147258963', 'Milik Sendiri', 'Medan', 1),
+(9, 9, '321654465789', '321456654987', 'Rendi', 'AG', '23', 'Padang', '1995-12-05', 'Laki-laki', 'Menikah', 'SD', '', 'Islam', 'Wiraswasta', '08154668784', 'Milik Sendiri', 'Buana bukit permata', 1);
 
 -- --------------------------------------------------------
 
@@ -147,15 +177,23 @@ CREATE TABLE `user_warga` (
 --
 
 INSERT INTO `user_warga` (`tabel_id`, `nama`, `usernama`, `password`, `role`, `status`, `creat_at`) VALUES
-(1, 'Robi Aryanto', 'AG21', '$2y$10$5H9UY09KpGseaCzuXZiVG.s3qOfsWpXYN6v7hzFB.OpPOzacfWewy', '66', '1', '2023-03-11 11:56:30'),
-(2, 'Slamet Fitriyanto', 'AE05', '$2y$10$wiH5NYOo5nhdCvqpRVPizeKptrF3QpVSpSTJdscP1W5.TSeBCye2e', '66', '1', '2023-03-11 11:56:32'),
-(3, 'Hadi', 'AG22', '$2y$10$dNbBIH3O3YP8Mi/wGQ4tIO81ep24YKpin4iQ9u7eETuiDaMkXGb3.', '66', '1', '2023-03-11 11:56:35'),
-(4, 'Adnil', 'AH12', '$2y$10$X9eavVvE6MBejAlVVgi.luBqj6cnRW.p052huO8EJbwX3BXrmFRFq', '66', '1', '2023-03-11 11:56:38'),
-(5, 'Sarmanto', 'AD15', '$2y$10$DEk5nChX/l2RPYiZShuyhOXeDdWqRE3c9SpSKaomioFjGDJZlL.Qq', '66', '1', '2023-03-11 11:56:47');
+(2, 'Slamet Fitriyanto', 'AE05', '$2y$10$wiH5NYOo5nhdCvqpRVPizeKptrF3QpVSpSTJdscP1W5.TSeBCye2e', '66', '0', '2023-03-11 20:15:40'),
+(4, 'Adnil', 'AH12', '$2y$10$X9eavVvE6MBejAlVVgi.luBqj6cnRW.p052huO8EJbwX3BXrmFRFq', '66', '1', '2023-03-11 04:56:38'),
+(7, 'Robi Aryanto', 'AG21', '$2y$10$8fd/0QcANYzbIE1dr7m/O.nl6rLjafqiL9z0ZRZ.kLSA77yLvIHmi', '66', '1', '2023-03-13 19:56:52'),
+(8, 'Imanuel Purba', 'AE05', '$2y$10$2YWedf.DtWQsOG2/PeZlPOUSxcRwZHoi4lFfaaTQgoDeVwB/DURrG', '66', '1', '2023-03-14 07:35:21'),
+(9, 'Rendi', 'AG23', '$2y$10$lEWhLn6XESgYvN6FPwfO6uW1xGHFcABGnDJjAvnpK.wwf/CuiTv7C', '66', '1', '2023-03-15 05:47:20');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `data_keluarga`
+--
+ALTER TABLE `data_keluarga`
+  ADD PRIMARY KEY (`tabel_id`) USING BTREE,
+  ADD KEY `user_id` (`kk_id`) USING BTREE,
+  ADD KEY `kk_id` (`kk_id`);
 
 --
 -- Indeks untuk tabel `data_pengurus`
@@ -194,6 +232,12 @@ ALTER TABLE `user_warga`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `data_keluarga`
+--
+ALTER TABLE `data_keluarga`
+  MODIFY `tabel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT untuk tabel `data_pengurus`
 --
 ALTER TABLE `data_pengurus`
@@ -203,7 +247,7 @@ ALTER TABLE `data_pengurus`
 -- AUTO_INCREMENT untuk tabel `data_warga`
 --
 ALTER TABLE `data_warga`
-  MODIFY `tabel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tabel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_admin`
@@ -221,7 +265,7 @@ ALTER TABLE `user_pengurus`
 -- AUTO_INCREMENT untuk tabel `user_warga`
 --
 ALTER TABLE `user_warga`
-  MODIFY `tabel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tabel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -237,7 +281,7 @@ ALTER TABLE `data_pengurus`
 -- Ketidakleluasaan untuk tabel `data_warga`
 --
 ALTER TABLE `data_warga`
-  ADD CONSTRAINT `data_warga_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_warga` (`tabel_id`);
+  ADD CONSTRAINT `data_warga_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_warga` (`tabel_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
