@@ -3,7 +3,6 @@ $(document).on("click", "#edit_link", function () {
     var tabel_id = $(this).data('tabel_id');
     $(".modal-body #tabel_id").val(tabel_id);
 
-
     var kk = $(this).data('kk');
     $(".modal-body #kk").val(kk);
 
@@ -158,7 +157,21 @@ $(document).on("click", "#detail_link", function () {
     // $(".modal-body #status_rumah").val(status_rumah).text(status_rumah);
     // $(".modal-body #alamat").val(alamat).text(alamat);
 
+
 });
+
+// $(document).on("click", "#detail_link", function () {
+//     var id = $(this).data('tabel_id');
+//     alert(id)
+
+// });
+
+// $(document).ready(function () {
+//     $('.detail.link').click(function () {
+//         var tabel_id = $(this).data('tabel_id');
+//         console.log(tabel_id)
+//     });
+// });
 
 // $(document).on("click", "#profile-edit", function () {
 //     var tabel_id = $(this).data('tabel_id');
@@ -214,3 +227,4 @@ $(document).on("click", "#detail_link", function () {
 //     $(".modal-body #alamat").val(alamat).text(alamat);
 
 // });
+

@@ -472,9 +472,9 @@
                                                     <div class="col-lg-3 col-md-4 label">Status Tempat Tinggal</div>
                                                     <div class="col-lg-9 col-md-8" id="status_rumah"></div>
                                                 </div>
-                                                <div class="card-body">
+                                                <div id="view-tabel" class="card-body">
                                                     <h5 class="card-title">C. Data Keluarga</h5>
-                                                    <table class="table table-bordered" style="width:100%">
+                                                    <table class="table table-bordered modal-tabel" style="width:100%">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
@@ -487,26 +487,10 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?php $i = 1 ?>
-                                                            <?php
-                                                            $id = $_POST['tabel_id'];
-                                                            $result = mysqli_query($koneksi, "SELECT * FROM data_warga
-								                            JOIN data_keluarga WHERE kk_id");
-                                                            $data = mysqli_fetch_array($result)
-                                                            ?>
+
                                                             <tr>
-                                                                <td><?= $i++; ?></td>
-                                                                <td><?= $id; ?></td>
-                                                                <td><?= $data['kelamin']; ?></td>
-                                                                <td><?= $data['tempat_lahir']; ?>, <?= $data['tgl_lahir']; ?></td>
-                                                                <td><?= $data['agama']; ?></td>
-                                                                <td><?= $data['sdk']; ?></td>
-                                                                <td><?= $data['telp']; ?></td>
+                                                                <!-- include keluarga.php -->
                                                             </tr>
-
-                                                            <?php
-
-                                                            ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -732,6 +716,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- End Modal Detail warga-->
 

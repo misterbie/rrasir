@@ -73,7 +73,7 @@
                     <td>
                       <!-- Detail -->
                       <!-- <button class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDetail"><i class="bi bi-eye-fill"></i> Detail</button> -->
-                      <a id="detail_link" href="#" type="" class="" data-bs-toggle="modal" data-bs-target="#ModalDetail" data-tabel_id="<?= $data['tabel_id']; ?>" data-kk="<?= $data['kk']; ?>" data-ktp="<?= $data['ktp']; ?>" data-nama="<?= $data['nama']; ?>" data-blok="<?= $data['blok']; ?>" data-nomer="<?= $data['nomer']; ?>" data-tempat_lahir="<?= $data['tempat_lahir']; ?>" data-tgl_lahir="<?= $data['tgl_lahir']; ?>" data-kelamin="<?= $data['kelamin']; ?>" data-menikah="<?= $data['menikah']; ?>" data-pendidikan="<?= $data['pendidikan']; ?>" data-keluarga="<?= $data['keluarga']; ?>" data-agama="<?= $data['agama']; ?>" data-pekerjaan="<?= $data['pekerjaan']; ?>" data-telp="<?= $data['telp']; ?>" data-status_rumah="<?= $data['status_rumah']; ?>" data-alamat="<?= $data['alamat']; ?>"><i class="bi bi-eye-fill"></i> Lihat Selengkapnya...</a>
+                      <a id="detail_link" href="#" type="" class="detail_link" data-bs-toggle="modal" data-bs-target="#ModalDetail" data-tabel_id="<?= $data['tabel_id']; ?>" data-kk="<?= $data['kk']; ?>" data-ktp="<?= $data['ktp']; ?>" data-nama="<?= $data['nama']; ?>" data-blok="<?= $data['blok']; ?>" data-nomer="<?= $data['nomer']; ?>" data-tempat_lahir="<?= $data['tempat_lahir']; ?>" data-tgl_lahir="<?= $data['tgl_lahir']; ?>" data-kelamin="<?= $data['kelamin']; ?>" data-menikah="<?= $data['menikah']; ?>" data-pendidikan="<?= $data['pendidikan']; ?>" data-keluarga="<?= $data['keluarga']; ?>" data-agama="<?= $data['agama']; ?>" data-pekerjaan="<?= $data['pekerjaan']; ?>" data-telp="<?= $data['telp']; ?>" data-status_rumah="<?= $data['status_rumah']; ?>" data-alamat="<?= $data['alamat']; ?>"><i class="bi bi-eye-fill"></i> Lihat Selengkapnya...</a>
                     </td>
                     <td class="text-center">
                       <!-- edit -->
@@ -103,3 +103,27 @@
 
 <?php include "modal.php"; ?>
 <?php include "../footer.php" ?>
+
+<script type="text/javascript">
+  //   $(document).ready(function () {
+  //     $('.detail.link').click(function () {
+  //         var tabel_id = $(this).data('tabel_id');
+  //         console.log(tabel_id)
+  //     });
+  // });
+  $(document).on("click", "#detail_link", function() {
+    var id = $(this).data('tabel_id');
+    $.ajax({
+      url: 'keluarga.php',
+      type: 'POST',
+      data: {
+        id: id
+      },
+      success: function(response) {
+        // console.log(response)
+        $('#view-tabel').html(response);
+        $('#ModalDetail').modal('show')
+      }
+    })
+  });
+</script>
